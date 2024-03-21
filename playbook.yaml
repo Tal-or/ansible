@@ -1,0 +1,17 @@
+---
+- name: "Hypershift installation playbook"
+  hosts: installers
+
+  roles:
+    - name: Install Golang
+      role: gantsign.ansible-role-golang
+      golang_version: '1.21.3'
+      golang_install_dir: /usr/local/bin/go
+
+  tasks:
+    - name: Clone Hypershift repo
+      git:
+        repo: https://github.com/openshift/hypershift
+        dest: /root/github/hypershift
+        clone: yes
+        update: yes
