@@ -71,7 +71,7 @@ default:
 mykubevirt:
   type: kubevirt
   kubeconfig: "${MANAGEMENT_CLUSTER_KUBECONFIG}"
-  namespace: "${VM_NS}"
+  namespace: "${HOSTED_CLUSTER_NS}"
   first_consumer: true"
 EOF
 
@@ -84,9 +84,18 @@ workers: 2
 numcpus: 16
 memory: 16384
 disk_size: 80
+platform: kubevirt
 pull_secret: /root/openshift_pull.json
 image_overrides: cluster-node-tuning-operator="${NTO_CUSTOM_IMAGE}"
+storage:
+  type: lvm
 EOF
 
 kcli create cluster hypershift --pf hypershift.yaml
 # kcli delete --yes cluster $cluster
+
+# hypershift operator watches for hosted cluster CR and creates the
+# control plane on a hosted-ns on the mng cluster (control plane = api,etcd, etc.)
+# ignition server - resposible for creating the workers of the hosted-cluster
+# the hosted-cluster CR represents the control-plane
+# node pool - represents the worker nodes
