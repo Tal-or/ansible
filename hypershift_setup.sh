@@ -85,7 +85,7 @@ memory: 16384
 disk_size: 80
 platform: kubevirt
 pull_secret: /root/openshift_pull.json
-image_overrides: cluster-node-tuning-operator="${NTO_CUSTOM_IMAGE}"
+image_overrides: cluster-node-tuning-operator=${NTO_CUSTOM_IMAGE}
 storage:
   type: lvm
 EOF
