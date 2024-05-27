@@ -46,7 +46,6 @@ kcli create app openshift kubevirt-hyperconverged
 # enable the epel repo for installing python3-kubernetes
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 /usr/bin/crb enable
-dnf install python3-kubernetes -y
 kcli install provider kubevirt
 
 # create hosted-cluster namespace
