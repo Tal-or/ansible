@@ -31,6 +31,7 @@ return "${is_ready}"
 }
 
 HOSTED_CLUSTER_NAME="${HOSTED_CLUSTER_NAME:=hostedcluster01}"
+HOSTED_CLUSTER_NS="${HOSTED_CLUSTER_NS:=clusters-hostedclusters}"
 # The namespace on the management cluster on which the VMs used
 # for the hosted cluster are reside.
 VM_NS="${VM_NS:=mykubevirt}"
