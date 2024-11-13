@@ -79,7 +79,7 @@ EOF
 cat <<EOF > hypershift.yaml
 cluster: "${HOSTED_CLUSTER_NAME}"
 version: nightly
-tag: 4.16
+tag: 4.18
 workers: 2
 numcpus: 16
 memory: 16384
